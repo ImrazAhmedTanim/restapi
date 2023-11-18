@@ -75,25 +75,38 @@ const login = async(req,res,next) =>{
 
   };
 
-  const sacredPage = async(req,res,next)=>{
-          const tok=req.headers.authorization;
-          if(!tok){
-            res.status(401).json({
-              msg:'user not granted'
-            })
-          };
-          try{
-          tokken=tok.split(" ")[1];
-          decode=jwt.verify(tokken,jwtSecret);
-          id = decode.id;
-          user= await Restapi.findById(id);
-          req.user=user;
-          }
-          catch(err){
-            res.status(500).json({msg:'server error'});
-          }
-  }
-
+  const sacredPage = async (req, res, next) => {
+    try {
+      const tok = req.headers.authorization;
+  
+      if (!tok) {
+        return res.status(401).json({ msg: 'Unauthorized: No token provided' });
+      }
+  
+      console.log('Received token:', tok);
+  
+      const token = tok.split(" ")[1];
+      const decode = jwt.verify(token, jwtSecret);
+  
+      console.log('Decoded token:', decode);
+  
+      const id = decode.id;
+  
+      console.log('Decoded user ID:', id);
+  
+      const user = await Restapi.findById(id);
+  
+      console.log('Retrieved user:', user);
+      res.status(200).json({msg:"authorized user"});
+  
+      req.user = user;
+      next();
+    } catch (err) {
+      console.error('Error in sacredPage middleware:', err);
+      res.status(500).json({ msg: 'Server error' });
+    }
+  };
+  
 
 module.exports = {
   signup,
