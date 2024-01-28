@@ -1,18 +1,40 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
+const cors = require('cors');
+
 const signupRoute = require('./route/signupRoute');
 const loginRoute = require('./route/loginRoute');
 const sacred = require('./route/sacredUserFetch');
+const allusers = require('./route/allusers');
+const update = require('./route/update');
+const fuelRoute = require('./route/fuelpriceRoute');
+const routerfuel = require('./controller/router');
+
+
 
 //const cors = require('cors'); // Import the cors package
  dotenv.config();
 const app = express();
+const corsOptions = {
+  origin: 'http://localhost:3001', // Frontend origin
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true,
+  optionsSuccessStatus: 204,
+};
+
+app.use(cors(corsOptions));
+
 app.use(express.json());
 app.use('/',signupRoute);
 app.use('/',loginRoute);
 app.use('/',sacred);
-const atlasURI = "mongodb://localhost:27017";
+app.use('/',allusers);
+app.use('/',update);
+app.use('/',fuelRoute);
+app.use('/',routerfuel)
+
+const atlasURI = "mongodb+srv://tanimf1:TO6DX668hQL3WqGP@cluster0.f4va9k9.mongodb.net/?retryWrites=true&w=majority";
 
 mongoose.connect(atlasURI)
   .then(() => console.log("Connected to MongoDB"))
@@ -23,3 +45,5 @@ const port = process.env.PORT||4000;
 app.listen(port,()=>{
     console.log(`server is running on ${port}`);
 });
+
+//TO6DX668hQL3WqGP
