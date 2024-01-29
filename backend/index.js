@@ -17,7 +17,7 @@ const routerfuel = require('./controller/router');
  dotenv.config();
 const app = express();
 const corsOptions = {
-  origin: 'http://localhost:3001', // Frontend origin
+  origin: 'https://restapi-70xj.onrender.com', // Frontend origin
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true,
   optionsSuccessStatus: 204,
