@@ -5,7 +5,7 @@ import axios from 'axios';
 const AuthService = {
   signup: async (credentials) => {
     try {
-      const response = await axios.post('http://localhost:3000/api/signup', credentials, {
+      const response = await axios.post('https://restapi-ns7b.onrender.com/api/signup', credentials, {
         headers: {
           'Content-Type': 'application/json',
         },
@@ -25,7 +25,7 @@ const AuthService = {
   },
   login: async (credentials) => {
     try {
-      const response = await axios.post('http://localhost:3000/api/login', credentials, {
+      const response = await axios.post('https://restapi-ns7b.onrender.com/api/login', credentials, {
         headers: {
           'Content-Type': 'application/json',
         },
@@ -51,7 +51,7 @@ const AuthService = {
   getAllUsers: async () => {
     try {
       const token = AuthService.getToken();
-      const response = await axios.get('http://localhost:3000/api/allusers', {
+      const response = await axios.get('https://restapi-ns7b.onrender.com/api/allusers', {
         headers: {
           'Authorization': `Bearer ${token}`
         }

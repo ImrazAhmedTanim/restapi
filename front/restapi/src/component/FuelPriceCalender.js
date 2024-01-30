@@ -21,7 +21,7 @@ const FuelPriceCalendar = () => {
 
   const handleSubmit = () => {
     // Make a request to fetch fuel prices for the selected date using Axios
-    axios.get(`http://localhost:3000/fuel-prices/${selectedDate}`)
+    axios.get(`https://restapi-ns7b.onrender.com/fuel-prices/${selectedDate}`)
       .then(response => {
         console.log('Axios Response:', response.data); // Log the response data
         setFuelPrices(response.data);
