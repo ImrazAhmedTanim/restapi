@@ -4,6 +4,8 @@ import axios from 'axios';
 const FuelPriceCalendar = () => {
   const [selectedDate, setSelectedDate] = useState('');
   const [fuelPrices, setFuelPrices] = useState({});
+  const [loading, setLoading] = useState(false); // New state variable
+
 
   const formatDate = (dateString) => {
     const dateObj = new Date(dateString);
@@ -18,11 +20,14 @@ const FuelPriceCalendar = () => {
     const formattedDate = formatDate(date);
     setSelectedDate(formattedDate);
   };
-
   const handleSubmit = () => {
+    setLoading(true);
+
     // Make a request to fetch fuel prices for the selected date using Axios
     axios.get(`https://restapi-ns7b.onrender.com/fuel-prices/${selectedDate}`)
+    
       .then(response => {
+        setLoading(false);
         console.log('Axios Response:', response.data); // Log the response data
         setFuelPrices(response.data);
       })
@@ -31,13 +36,21 @@ const FuelPriceCalendar = () => {
 
   return (
     <div>
-      <input type="date" value={selectedDate} onChange={handleDateChange} />
+      { loading ? (
+                 <div className="font-bold text-2xl text-green-500">loading...plz wait as it is hosted in free server</div>
+
+      ):
+      (
+      <div>
+        <input type="date" value={selectedDate} onChange={handleDateChange} />
       <button onClick={handleSubmit}>Submit</button>
       <div>
         <p>Petrol Price: {fuelPrices.petrol || 'N/A'}</p>
         <p>Diesel Price: {fuelPrices.diesel || 'N/A'}</p>
         <p>Octane Price: {fuelPrices.octane || 'N/A'}</p>
       </div>
+        </div>
+      )}
     </div>
   );
 };
