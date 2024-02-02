@@ -11,6 +11,7 @@ const Login = () => {
     email: '',
     password: '',
   });
+  const [loading, setLoading] = useState(false); // New state variable
 
   const { handleAuthInfo } = useAuth();  // Ensure you're using the correct context values
   const navigate = useNavigate();
@@ -25,8 +26,13 @@ const Login = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
+    // Start loading
+setLoading(true);
     const loginSuccess = await AuthService.login(formData);
+         // Stop loading
+         setLoading(false);
+
+
 
     if (loginSuccess) {
       handleAuthInfo();  // Call the context function to update login status
@@ -39,6 +45,9 @@ const Login = () => {
   return (
     <div>
 <main className="main">
+  {loading?(
+    <div className="font-bold text-2xl text-green-500">loading...plz wait as it is hosted in free server</div>
+  ):(
   <form className="login form" onSubmit={handleSubmit}>
     <div className="textInput flex items-center hover:border-blue-500">
       <MdEmail className="material-icons-outlined" />
@@ -68,6 +77,7 @@ const Login = () => {
   Don't have an account? <Link to="/signup" className="text-blue-500">Signup</Link> instead.
 </div>
   </form>
+  )}
 </main>
     </div>
   );

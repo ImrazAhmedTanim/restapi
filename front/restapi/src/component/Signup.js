@@ -74,7 +74,7 @@ export default function Signup() {
       <div>
         <main className="main">
         {loading ? (
-          <div>...Loading</div>
+         <div className="font-bold text-2xl text-green-500">loading...plz wait as it is hosted in free server</div>
         ):(
       <form className="signup form" onSubmit={handleSubmit}>
 
