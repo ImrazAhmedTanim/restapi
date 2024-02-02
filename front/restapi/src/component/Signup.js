@@ -14,7 +14,8 @@ export default function Signup() {
         confirmPassword: '',
         agreedToTerms: false,
       });
-      
+      const [loading, setLoading] = useState(false); // New state variable
+
       const navigate = useNavigate();
       const { handleAuthInfo } = useAuth();  // Ensure you're using the correct context values
 
@@ -54,7 +55,12 @@ export default function Signup() {
       window.alert('Password and Confirm Password do not match.');
       return; // Prevent further execution
     };
+     // Start loading
+     setLoading(true);
       const signupSuccess = await AuthService.signup(formData);
+        // Stop loading
+    setLoading(false);
+
       if (signupSuccess) {
         // Redirect to the AllUsers page upon successful login
         handleAuthInfo();
@@ -67,6 +73,9 @@ export default function Signup() {
     return (
       <div>
         <main className="main">
+        {loading ? (
+          <div>...Loading</div>
+        ):(
       <form className="signup form" onSubmit={handleSubmit}>
 
       <div className="textInput flex items-center hover:border-blue-500">
@@ -139,8 +148,11 @@ export default function Signup() {
   Already have an account? <Link to="/" className="text-blue-500">Login</Link> instead.
 </div>
       </form>
+        )
+}
     </main>
       </div>
     );
+        
   
 }
