@@ -1,43 +1,49 @@
 // NavBar.js
+/* eslint-disable no-restricted-globals */
+
 import React,{useContext} from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from './AuthContext';  // Update the path if needed
-import 'alpinejs';
+import "alpinejs";
 
 //import '../styles/NavBar.css';
 
 
 const NavBar = () => {
   const { isLoggedIn, handleLogout } = useAuth();  // Ensure you're using the correct context values
-
+ 
   return (
-<nav className="nav">
-  <ul className="navbar flex flex-row justify-end ml-auto">
-  <li className="mb-4  bg-violet-500  border p-2 transition-transform transform hover:scale-110 hover:border-t hover:border-r hover:border-b hover:border-l hover:border-black">
-          {isLoggedIn ? (
-            <Link to="/" onClick={handleLogout}>Logout</Link>
-          ) : (
-            <Link to="/">Login</Link>
-          )}
-    </li>
-
-    <li className="mb-4 bg-violet-400  border p-2 transition-transform transform hover:scale-110 hover:border-t hover:border-r hover:border-b hover:border-l hover:border-black">
-      <Link to="/allusers">Get All Users</Link>
-    </li>
-
-    <li className="mb-4 bg-violet-300  border p-2 transition-transform transform hover:scale-110 hover:border-t hover:border-r hover:border-b hover:border-l hover:border-black">
-      <Link to="/fuelpricecalender">Fuel Price</Link>
-    </li>
-
-    <li className="mb-4 bg-violet-200  border p-2 transition-transform transform hover:scale-110 hover:border-t hover:border-r hover:border-b hover:border-l hover:border-black">
-      <Link to="/getuser">Get User</Link>
-    </li>
-
-    <li className="mb-4 bg-violet-100 border p-2 transition-transform transform hover:scale-110 hover:border-t hover:border-r hover:border-b hover:border-l hover:border-black">
-      <Link to="/updateuser">Update User</Link>
-    </li>
-  </ul>
+<nav x-data="{ open: false }" className="nav bg-white shadow-md">
+  <div className="max-w-screen-xl mx-auto px-4">
+    <div className="flex justify-between items-center py-4">
+      <div className="flex items-center">
+        <a href="#" className="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg focus:outline-none focus:shadow-outline">
+          Tanim's Rest Api
+        </a>
+      </div>
+      <div className="hidden md:flex items-center space-x-4">
+        <Link to="/" className="text-sm font-semibold text-gray-900 hover:text-blue-700 focus:outline-none focus:text-gray-700">
+          Login
+        </Link>
+        <Link to="/allusers" className="text-sm font-semibold text-gray-900 hover:text-blue-700 focus:outline-none focus:text-gray-700">
+        Get All Users
+        </Link>
+        <Link to="/fuelpricecalender" className="text-sm font-semibold text-gray-900 hover:text-blue-700 focus:outline-none focus:text-gray-700">
+        Fuel Price
+        </Link>
+        <Link to="/getuser" className="text-sm font-semibold text-gray-900 hover:text-blue-700 focus:outline-none focus:text-gray-700">
+        Get User
+        </Link>
+        <Link to="/updateuser" className="text-sm font-semibold text-gray-900 hover:text-blue-700 focus:outline-none focus:text-gray-700">
+        Update User
+        </Link>
+      </div>
+    
+    </div>
+  
+  </div>
 </nav>
+
 
 
   
