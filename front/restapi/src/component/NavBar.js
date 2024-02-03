@@ -2,6 +2,8 @@
 import React,{useContext} from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from './AuthContext';  // Update the path if needed
+import 'alpinejs';
+
 //import '../styles/NavBar.css';
 
 
