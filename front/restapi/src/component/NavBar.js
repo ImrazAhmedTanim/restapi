@@ -30,6 +30,9 @@ const NavBar = () => {
     <li className="mb-4 bg-violet-300 border p-2 transition-transform transform hover:scale-110 hover:border-t hover:border-r hover:border-b hover:border-l hover:border-black">
       <Link to="/fuelpricecalender">Fuel Price</Link>
     </li>
+    <li className="mb-4 bg-violet-300 border p-2 transition-transform transform hover:scale-110 hover:border-t hover:border-r hover:border-b hover:border-l hover:border-black">
+      <Link to="/goldpricecalender">Gold Price</Link>
+    </li>
 
     <li className="mb-4 bg-violet-300 border p-2 transition-transform transform hover:scale-110 hover:border-t hover:border-r hover:border-b hover:border-l hover:border-black">
       <Link to="/getuser">Get User</Link>

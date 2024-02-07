@@ -6,6 +6,7 @@ import NavBar from './component/NavBar';
 import LandingPage from './component/LandingPage';
 import FuelPriceCalendar from './component/FuelPriceCalender';
 import AuthInfo from './component//AuthContext';
+import GoldPrice from './component/GoldPrice';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -25,6 +26,7 @@ function App() {
       <Route path="/allusers" element={<Allusers />} />
       <Route path="/landingpage" element={<LandingPage />} />
       <Route path="/fuelpricecalender" element={<FuelPriceCalendar />} />
+      <Route path="/goldpricecalender" element={<GoldPrice />} />
 
 
      
