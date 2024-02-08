@@ -51,10 +51,11 @@ const FuelPriceCalendar = () => {
         <input type="date" value={selectedDate} onChange={handleDateChange} />
       <button onClick={handleSubmit}>Submit</button>
       <div>
-        <p>Petrol Price: { fuelPrices.petrolDate + fuelPrices.petrol || 'N/A'}</p>
-        <p>Diesel Price: {fuelPrices.diesel || 'N/A'}</p>
-        <p>Octane Price: {`${fuelPrices.octane} tk` || 'N/A'}</p>
-      </div>
+  <p>Date: {selectedDate}</p>
+  <p>Petrol Price: {fuelPrices.petrol ? `${fuelPrices.petrol} tk` : 'N/A'}</p>
+  <p>Diesel Price: {fuelPrices.diesel ? `${fuelPrices.diesel} tk` : 'N/A'}</p>
+  <p>Octane Price: {fuelPrices.octane ? `${fuelPrices.octane} tk` : 'N/A'}</p>
+</div>
         </div>
       )}
     </div>
