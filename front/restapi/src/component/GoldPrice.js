@@ -54,7 +54,7 @@ export default function GoldPrice() {
     <>
 
 <div className="p-4 mt-8 mb-8 bg-gray-200">
-  <h1 className="text-2xl font-bold">Simple Calculator</h1>
+  <h1 className="text-2xl font-bold">Gold Price Calculator</h1>
 
 <form className="mt-4">
   <p ref={resultRef} className="mb-2">Multiply Result: {mulResult}</p>
