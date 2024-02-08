@@ -53,7 +53,7 @@ const FuelPriceCalendar = () => {
       <div>
         <p>Petrol Price: { fuelPrices.petrolDate + fuelPrices.petrol || 'N/A'}</p>
         <p>Diesel Price: {fuelPrices.diesel || 'N/A'}</p>
-        <p>Octane Price: {fuelPrices.octane || 'N/A'}</p>
+        <p>Octane Price: {`${fuelPrices.octane} tk` || 'N/A'}</p>
       </div>
         </div>
       )}
