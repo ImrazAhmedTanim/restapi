@@ -32,10 +32,13 @@ export default function Signup() {
         const otherField = name === 'password' ? 'confirmPassword' : 'password';
         
         const passwordMatch = newValue === formData[otherField];
+        // Update the regular expression for password validation
+        const isValidPassword = /^(?=.*[A-Z]).{8,}$/.test(newValue) && /^(?=.*[A-Z]).{8,}$/.test(formData[otherField]);
         setFormData((prevFormData) => ({
           ...prevFormData,
           [name]: newValue,
           passwordMatch: passwordMatch,
+          isValidPassword: isValidPassword
         }));
       } else {
         // For other fields, simply update the form data
