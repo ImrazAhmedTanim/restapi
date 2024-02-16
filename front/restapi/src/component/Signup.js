@@ -123,7 +123,7 @@ export default function Signup() {
           />
         
         </div>
-          <div >
+          <div className='password-input-container'>
         <div className="textInput flex items-center hover:border-blue-500">
         <MdLock className="material-icons-outlined" />
 

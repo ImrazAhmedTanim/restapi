@@ -73,8 +73,8 @@
     margin-top: 16px;
     font-size: 14px;
   }
-  .error-message {
-    margin-left:8px;
-    white-space: nowrap;
+  .password-input-container {
+    margin-left: 5em; /* Adjust margin as needed */
+    margin-right:5em
   }
   
