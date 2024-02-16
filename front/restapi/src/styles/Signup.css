@@ -30,6 +30,7 @@
   .form {
     display: flex;
     flex-direction: column;
+    
   }
   
   .textInput {
@@ -71,5 +72,9 @@
     text-align: center;
     margin-top: 16px;
     font-size: 14px;
+  }
+  .error-message {
+    margin-left:8px;
+    white-space: nowrap;
   }
   

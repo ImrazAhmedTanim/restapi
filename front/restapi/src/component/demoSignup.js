@@ -33,15 +33,11 @@ export default function Signup() {
         
         const passwordMatch = newValue === formData[otherField];
         // Update the regular expression for password validation
-        const isValidPassword = /^(?=.*[A-Z])(?=.*\d).{8,}$/.test(newValue);
-
        
         setFormData((prevFormData) => ({
           ...prevFormData,
           [name]: newValue,
-          passwordMatch: passwordMatch,
-          isValidPassword: isValidPassword,
-
+          passwordMatch: passwordMatch
         
         }));
       } else {
@@ -63,9 +59,6 @@ export default function Signup() {
       window.alert('Password and Confirm Password do not match.');
       return; // Prevent further execution
     };
-    if (!formData.isValidPassword) {
-      return;
-    }
   
     
      // Start loading
@@ -96,8 +89,8 @@ export default function Signup() {
             </button>
           </div>        
           ):(
-      <form className="signup form " onSubmit={handleSubmit}>
-        
+      <form className="signup form" onSubmit={handleSubmit}>
+
       <div className="textInput flex items-center hover:border-blue-500">
       <MdAccountCircle  className="material-icons-outlined" />
 
@@ -110,7 +103,6 @@ export default function Signup() {
             
           />
          
-        
         </div>
 
         <div className="textInput flex items-center hover:border-blue-500">
@@ -123,7 +115,7 @@ export default function Signup() {
           />
         
         </div>
-          <div >
+
         <div className="textInput flex items-center hover:border-blue-500">
         <MdLock className="material-icons-outlined" />
 
@@ -133,17 +125,9 @@ export default function Signup() {
             placeholder="Enter password"
             value={formData.password}
             onChange={handleInputChange}
-            onBlur={() => handleInputChange({ target: { name: 'password', value: formData.password } })}
-
           />
         
         </div>
-        {!formData.isValidPassword && (
-    <div className="error-message">
-      Password min length 8,must contain a capital letter and number
-    </div>
-  )}       
-   </div>
 
         <div className="textInput flex items-center hover:border-blue-500">
 
