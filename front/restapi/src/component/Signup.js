@@ -97,7 +97,7 @@ export default function Signup() {
           </div>        
           ):(
       <form className="signup form " onSubmit={handleSubmit}>
-        
+       <div className='password-input-container' >
       <div className="textInput flex items-center hover:border-blue-500">
       <MdAccountCircle  className="material-icons-outlined" />
 
@@ -112,7 +112,8 @@ export default function Signup() {
          
         
         </div>
-
+        </div>
+            <div className='password-input-container'>
         <div className="textInput flex items-center hover:border-blue-500">
       <MdEmail className="material-icons-outlined" />          <input
             type="text"
@@ -122,6 +123,7 @@ export default function Signup() {
             onChange={handleInputChange}
           />
         
+        </div>
         </div>
           <div className='password-input-container'>
         <div className="textInput flex items-center hover:border-blue-500">
@@ -139,12 +141,12 @@ export default function Signup() {
         
         </div>
         {!formData.isValidPassword && (
-    <div className="error-message">
+    <div className="error-message" style={{color:"red"}}>
       Password min length 8,must contain a capital letter and number
     </div>
   )}       
    </div>
-
+          <div className='password-input-container'>
         <div className="textInput flex items-center hover:border-blue-500">
 
         <MdLock className="material-icons-outlined" />
@@ -156,6 +158,7 @@ export default function Signup() {
             onChange={handleInputChange}
           />
          
+        </div>
         </div>
 
         <div className="mb-4">
