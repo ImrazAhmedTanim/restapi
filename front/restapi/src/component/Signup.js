@@ -161,7 +161,7 @@ export default function Signup() {
         </div>
         </div>
 
-        <div className="mb-4">
+        <div className="checkbox" style={{marginRight:"27rem"}}>
           <input
             type="checkbox"
             name="agreedToTerms"
@@ -169,16 +169,19 @@ export default function Signup() {
             onChange={handleInputChange}
           />
         </div>
-
+         <div className='password-input-container' >
         <button
   type="submit"
-  className="mb-4 bg-white text-green-500 p-2 border-none rounded cursor-pointer hover:bg-green-500 hover:text-white"
+  className="bg-white  text-green-500 p-2 border-none rounded cursor-pointer hover:bg-green-500 hover:text-white w-full mt-2 mb-2"
 >
           Signup
         </button>
+        
+        
 
         <div className="info">
   Already have an account? <Link to="/" className="text-blue-500">Login</Link> instead.
+</div>
 </div>
       </form>
         )
