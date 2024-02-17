@@ -161,7 +161,7 @@ export default function Signup() {
         </div>
         </div>
 
-        <div className="checkbox" style={{marginRight:"27rem"}}>
+        <div className="password-input-container1" style={{marginRight:"27rem"}}>
           <input
             type="checkbox"
             name="agreedToTerms"
