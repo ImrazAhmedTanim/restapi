@@ -64,6 +64,7 @@ export default function Signup() {
       return; // Prevent further execution
     };
     if (!formData.isValidPassword) {
+      window.alert("Password min length 8,must contain a capital letter and number")
       return;
     }
   
