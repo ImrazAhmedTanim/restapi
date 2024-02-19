@@ -4,7 +4,7 @@ import AuthService from './AuthService ';
 import { useAuth } from './AuthContext';
 
 const updateUser = () => {
-  const [user, setUser] = useState([]);
+  const [users, setUsers] = useState([]);
   const [error, setError] = useState(null);
   const { isLoggedIn } = useAuth(); // Access the authentication state
 
@@ -18,12 +18,12 @@ const updateUser = () => {
         }
 
         const userData = await AuthService.updateUser();
-        setUser(userData.user);
+        setUsers(userData.users);
         
         setError(null);
       } catch (error) {
         console.error('Error fetching users:', error.message);
-        setUser([]);
+        setUsers([]);
         setError('Error fetching users. Please check your token and try again.');
       }
     };
@@ -40,7 +40,7 @@ const updateUser = () => {
           <p>{error}</p>
         ) : (
           <ul>
-            {user.map((user) => (
+            {users.map((user) => (
               <li key={user._id}>
                 User ID: {user._id}, Name: {user.name}, Email: {user.email}
               </li>
