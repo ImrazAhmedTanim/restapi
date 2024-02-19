@@ -7,7 +7,7 @@ const signupRoute = require('./route/signupRoute');
 const loginRoute = require('./route/loginRoute');
 const sacred = require('./route/sacredUserFetch');
 const allusers = require('./route/allusers');
-const update = require('./route/update');
+const updateRoute = require('./route/update');
 const fuelRoute = require('./route/fuelpriceRoute');
 const routerfuel = require('./controller/router');
 
@@ -30,7 +30,7 @@ app.use('/',signupRoute);
 app.use('/',loginRoute);
 app.use('/',sacred);
 app.use('/',allusers);
-app.use('/',update);
+app.use('/',updateRoute);
 app.use('/',fuelRoute);
 app.use('/',routerfuel)
 
