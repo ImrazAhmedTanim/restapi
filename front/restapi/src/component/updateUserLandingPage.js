@@ -53,4 +53,4 @@ const UpdateUser = () => {
   );
 };
 
-export default updateUser;
+export default UpdateUser;
