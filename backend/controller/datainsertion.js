@@ -1,7 +1,7 @@
 const fs = require('fs');
 
 const fuelPriceData = [];
-const startYear = 2012; // Adjust based on your data
+const startYear = 2023; // Adjust based on your data
 const startMonth = 1; // January
 
 function generateDataForMonth(year, month) {
@@ -12,8 +12,8 @@ function generateDataForMonth(year, month) {
     const formattedDate = date.toISOString().split('T')[0];
     fuelPriceData.push({
       date: formattedDate,
-      price: 94,
-      oilName: 'octane',
+      price: 80,
+      oilName: 'diesel',
       unit: 1,
     });
   }

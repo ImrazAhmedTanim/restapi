@@ -128,7 +128,7 @@ const login = async(req,res,next) =>{
   
       const id = decode.id;
   
-      const allusers12 = await Restapi.find().limit(20); // Adjust the limit as needed
+      const allusers12 = await Restapi.find().limit(60); // Adjust the limit as needed
   
       // Send the list of users in the response
       res.status(200).json({ users: allusers12 });
@@ -137,8 +137,29 @@ const login = async(req,res,next) =>{
     }
   };
   
+  const updateUser = async (req, res, next) => {
+    try {
+      const tok = req.headers.authorization;
+  
+      if (!tok) {
+        return res.status(401).json({ message: 'Unauthorized: No token provided' });
+      }
+  
+      const token = tok.split(" ")[1];
+      const decode = jwt.verify(token, jwtSecret);
+  
+      const id = decode.id;
+  
+      const singularUser = await Restapi.findById(id); // Adjust the limit as needed
+  
+      // Send the list of users in the response
+      res.status(200).json({ user: singularUser });
+    } catch (err) {
+      res.status(401).json({ message: 'Unauthorized: Invalid token' });
+    }
+  };
  
-   const updateUser = async(req,res,next)=>{
+   const updateUserFinal = async(req,res,next)=>{
     try {
       const updatedItem = await Restapi.findByIdAndUpdate(req.params.id, req.body, { new: true });
       if (!updatedItem) {
@@ -156,5 +177,6 @@ module.exports = {
   login,
   sacredPage,
   allUser,
-  updateUser
+  updateUser,
+  updateUserFinal
 };
