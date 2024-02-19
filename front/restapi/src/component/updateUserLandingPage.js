@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import AuthService from './AuthService ';
 import { useAuth } from './AuthContext';
 
-const updateUser = () => {
+const UpdateUser = () => {
   const [users, setUsers] = useState([]);
   const [error, setError] = useState(null);
   const { isLoggedIn } = useAuth(); // Access the authentication state
