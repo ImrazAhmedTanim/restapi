@@ -4,51 +4,49 @@ import AuthService from './AuthService ';
 import { useAuth } from './AuthContext';
 
 const UpdateUser = () => {
-  const [users, setUsers] = useState([]);
+  const [user, setUser] = useState(null); // Use 'null' as the initial state for a single user
   const [error, setError] = useState(null);
   const { isLoggedIn } = useAuth(); // Access the authentication state
 
   useEffect(() => {
-    const fetchUsers = async () => {
+    const fetchUser = async () => {
       try {
         if (!isLoggedIn) {
           // If not logged in, set an error message
-          setError('Error fetching users. Please log in and try again.');
+          setError('Error fetching user. Please log in and try again.');
           return;
         }
 
         const userData = await AuthService.updateUser();
-        setUsers(userData.users);
-        
+        setUser(userData.user); // Assuming 'updateUser' returns a single user
         setError(null);
       } catch (error) {
-        console.error('Error fetching users:', error.message);
-        setUsers([]);
-        setError('Error fetching users. Please check your token and try again.');
+        console.error('Error fetching user:', error.message);
+        setUser(null); // Set user to null in case of an error
+        setError('Error fetching user. Please check your token and try again.');
       }
     };
 
-    fetchUsers();
+    fetchUser();
   }, [isLoggedIn]); // Dependency on isLoggedIn to re-run the effect when authentication status changes
 
   return (
     <div>
-      {/* User List Section */}
+      {/* User Information Section */}
       <div>
-        <h2>User List</h2>
+        <h2>User Information</h2>
         {error ? (
           <p>{error}</p>
+        ) : user ? (
+          <div>
+            <p>User ID: {user._id}</p>
+            <p>Name: {user.name}</p>
+            <p>Email: {user.email}</p>
+          </div>
         ) : (
-          <ul>
-            {users.map((user) => (
-              <li key={user._id}>
-                User ID: {user._id}, Name: {user.name}, Email: {user.email}
-              </li>
-            ))}
-          </ul>
+          <p>No user data available</p>
         )}
       </div>
-      
     </div>
   );
 };
