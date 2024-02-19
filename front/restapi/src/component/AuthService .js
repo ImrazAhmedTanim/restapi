@@ -63,6 +63,21 @@ const AuthService = {
     }
   },
   // Other authentication-related methods...
+
+  updateUser: async () => {
+    try {
+      const token = AuthService.getToken();
+      const response = await axios.get('https://restapi-ns7b.onrender.com/api/updateuser', {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
+
+      return response.data;
+    } catch (error) {
+      throw new Error('Failed to fetch users');
+    }
+  },
 };
 
 export default AuthService;
