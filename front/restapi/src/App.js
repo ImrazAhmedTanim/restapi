@@ -27,7 +27,7 @@ function App() {
       <Route path="/landingpage" element={<LandingPage />} />
       <Route path="/fuelpricecalender" element={<FuelPriceCalendar />} />
       <Route path="/goldpricecalender" element={<GoldPrice />} />
-      <Route path="/updateUser" element={<updateUser />} />
+      <Route path="/updateuser" element={<updateUser />} />
 
 
 
