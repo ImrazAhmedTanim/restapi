@@ -27,7 +27,7 @@ const UpdateUser = () => {
       }
     };
 
-    
+    fetchUser();
   }, [isLoggedIn]); // Dependency on isLoggedIn to re-run the effect when authentication status changes
 
   return (
