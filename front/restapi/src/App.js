@@ -7,8 +7,8 @@ import LandingPage from './component/LandingPage';
 import FuelPriceCalendar from './component/FuelPriceCalender';
 import AuthInfo from './component//AuthContext';
 import GoldPrice from './component/GoldPrice';
-import UpdateUser from './component/updateUserLandingPage';
 import GetUser from './component/GetUser';
+import UpdateUser from './component/UpdateUserLandingPage';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {

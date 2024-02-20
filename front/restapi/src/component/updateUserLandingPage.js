@@ -43,6 +43,7 @@ const UpdateUser = () => {
             <p>Name: {user.name}</p>
             <p>Email: {user.email}</p>
           </div>
+          
         ) : (
           <p>No user data available</p>
         )}

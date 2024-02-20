@@ -114,6 +114,27 @@ const login = async(req,res,next) =>{
       res.status(500).json({ msg: 'Server error' });
     }
   };
+  const getUser = async (req, res, next) => {
+    try {
+      const tok = req.headers.authorization;
+  
+      if (!tok) {
+        return res.status(401).json({ message: 'Unauthorized: No token provided' });
+      }
+  
+      const token = tok.split(" ")[1];
+      const decode = jwt.verify(token, jwtSecret);
+  
+      const id = decode.id;
+  
+      const singularUser = await Restapi.findById(id); // Adjust the limit as needed
+  
+      // Send the list of users in the response
+      res.status(200).json({ user: singularUser });
+    } catch (err) {
+      res.status(401).json({ message: 'Unauthorized: Invalid token' });
+    }
+  };
    
   const allUser = async (req, res, next) => {
     try {
@@ -178,5 +199,6 @@ module.exports = {
   sacredPage,
   allUser,
   updateUser,
-  updateUserFinal
+  updateUserFinal,
+  getUser
 };

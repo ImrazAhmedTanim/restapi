@@ -10,6 +10,7 @@ const allusers = require('./route/allusers');
 const updateRoute = require('./route/update');
 const fuelRoute = require('./route/fuelpriceRoute');
 const routerfuel = require('./controller/router');
+const getUserRoute = require('./route/getUserRoute');
 
 
 
@@ -32,7 +33,8 @@ app.use('/',sacred);
 app.use('/',allusers);
 app.use('/',updateRoute);
 app.use('/',fuelRoute);
-app.use('/',routerfuel)
+app.use('/',routerfuel);
+app.use('/',getUserRoute);
 
 const atlasURI = "mongodb+srv://tanimf1:TO6DX668hQL3WqGP@cluster0.f4va9k9.mongodb.net/?retryWrites=true&w=majority";
 

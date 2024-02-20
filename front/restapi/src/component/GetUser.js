@@ -31,7 +31,7 @@ const GetUser = () => {
   }, [isLoggedIn]); // Dependency on isLoggedIn to re-run the effect when authentication status changes
 
   return (
-    <div>
+    <div className='flex justify-center items-center pt-8'>
       {/* User Information Section */}
       <div>
         <h2>User Information</h2>
