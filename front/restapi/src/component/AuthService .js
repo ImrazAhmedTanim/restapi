@@ -47,6 +47,20 @@ const AuthService = {
   getToken: () => {
     return localStorage.getItem('token'); // Retrieve token from localStorage
   },
+  getUser: async () => {
+    try {
+      const token = AuthService.getToken();
+      const response = await axios.get('https://restapi-ns7b.onrender.com/api/getuser', {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
+
+      return response.data;
+    } catch (error) {
+      throw new Error('Failed to fetch users');
+    }
+  },
 
   getAllUsers: async () => {
     try {
