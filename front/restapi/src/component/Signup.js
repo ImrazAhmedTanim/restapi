@@ -93,7 +93,11 @@ export default function Signup() {
                 <div className="flex items-center justify-center m-[10px]"> 
                     <div className="h-5 w-5 border-t-transparent border-solid animate-spin rounded-full border-white border-4"></div>
                     <div className="ml-2"> Processing... </div>
-                    <div className="ml-2"> Backend deployed in free server so response takes time</div>
+
+                </div>
+                <div className="flex items-center justify-center m-[10px]"> 
+                    <div className="h-5 w-5 border-t-transparent border-solid animate-spin rounded-full border-white border-4"></div>
+                    <div className="ml-2"> Response Takes Time as Site Deployed in Free Server </div>
 
                 </div>
             </button>
