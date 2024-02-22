@@ -8,7 +8,7 @@ import FuelPriceCalendar from './component/FuelPriceCalender';
 import AuthInfo from './component//AuthContext';
 import GoldPrice from './component/GoldPrice';
 import GetUser from './component/GetUser';
-import UpdateUser from './component/UpdateUserLandingPage';
+import UpdateUser from './component/UpdateUser';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -28,8 +28,8 @@ function App() {
       <Route path="/landingpage" element={<LandingPage />} />
       <Route path="/fuelpricecalender" element={<FuelPriceCalendar />} />
       <Route path="/goldpricecalender" element={<GoldPrice />} />
-      <Route path="/updateuser" element={<UpdateUser />} />
       <Route path="/getuser" element={<GetUser />} />
+      <Route path="/updateuser" element={<UpdateUser />} />
 
 
 
