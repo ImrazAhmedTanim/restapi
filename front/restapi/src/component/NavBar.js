@@ -1,6 +1,3 @@
-// NavBar.js
-/* eslint-disable no-restricted-globals */
-
 import React,{useContext} from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from './AuthContext';  // Update the path if needed
