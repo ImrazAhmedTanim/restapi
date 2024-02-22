@@ -42,6 +42,13 @@ const UpdateUser = () => {
             <p>User ID: {user._id}</p>
             <p>Name: {user.name}</p>
             <p>Email: {user.email}</p>
+            <div>
+            
+            
+            <p>to update this account u can follow three url:
+            https://restapi-eta-sepia.vercel.app/api/updateuser/:id/
+            </p>
+            </div>
           </div>
           
         ) : (

@@ -42,6 +42,7 @@ const GetUser = () => {
             <p>User ID: {user._id}</p>
             <p>Name: {user.name}</p>
             <p>Email: {user.email}</p>
+           
           </div>
         ) : (
           <p>No user data available</p>
